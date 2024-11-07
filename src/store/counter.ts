@@ -6,15 +6,19 @@ export const useCounterStore = defineStore('counter', {
     state: () => {
 
         return {
-            count: 0
+            count: 0,
+            total: 0,
+            incre: 5,
+            valincre: 1
         }
     },
     getters: {
-        times2: (state) => state.count * 2
+        times2: (state) => state.count * state.incre
     },
     actions: {
-        increment(val = 1) {
-            this.count += val
+        increment() {
+            this.count += this.incre
+            this.total = this.total+this.times2
         }
     }
 })

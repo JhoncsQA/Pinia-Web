@@ -1,9 +1,10 @@
 <template>
   <div class="container">
     <div class="content">
-      <h1 class="title">Contador</h1>
-      <p class="equation">{{ store.count }} x 2 = {{ store.times2 }}</p>
-      <button @click="store.increment(1)" class="increment-button">Incrementar</button>
+      <h1 class="title">CONTADOR</h1>
+      <p class="equation">{{ store.count }} x {{ store.incre }} = {{ store.times2 }}</p>
+      <p class="equation">SUMA TOTAL = {{ store.total }}</p>
+      <button @click="store.increment()" class="increment-button">Incrementar</button>
     </div>
   </div>
 </template>
@@ -21,86 +22,91 @@ const store = useCounterStore();
   box-sizing: border-box;
 }
 
-/* Estilos generales */
-body {
-  font-family: 'Inter', sans-serif; /* Tipografía moderna */
-  background-color: #f0f4f8; /* Fondo neutro */
+/* Estilos generales con estética cyberpunk */
+html, body {
+  font-family: 'Orbitron', sans-serif; /* Fuente futurista */
+  background: radial-gradient(circle, #1b1b2f, #1f4068, #162447); /* Fondo oscuro con gradiente */
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; /* Centrado en toda la pantalla */
+  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  overflow: hidden;
 }
 
 .container {
-  background: linear-gradient(135deg, rgba(30, 30, 60, 0.8), rgba(50, 50, 100, 0.8));
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(25, 25, 25, 0.9); /* Fondo oscuro con opacidad */
+  padding: 30px;
+  border: 2px solid #61f725; /* Bordes en color verde neon */
+  border-radius: 15px;
   max-width: 400px;
   width: 100%;
+  box-shadow: 0 0 20px #61f725, 0 0 40px #bed7ee; /* Efecto de brillo neon */
   text-align: center;
-  color: #ffffff;
 }
 
 .content {
-  background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil para el contenido */
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Título */
 .title {
   font-size: 2.5rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+  color: #61f725; /* Verde neon */
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px #61f725, 0 0 15px #00ff00; /* Brillo neon */
 }
 
 /* Ecuación */
 .equation {
-  font-size: 1.8rem;
-  color: #fff;
-  font-weight: 500;
+  font-size: 1.5rem;
+  color: #bed7ee; /* Azul suave */
   margin: 15px 0;
+  text-shadow: 0 0 5px #bed7ee, 0 0 10px #bed7ee; /* Brillo sutil */
 }
 
-/* Botón */
+/* Botón con efecto cyberpunk */
 .increment-button {
   padding: 12px 24px;
-  background-color: #0066FF; /* Azul vibrante */
-  color: white;
+  background: linear-gradient(45deg, #bed7ee, #61f725);
+  color: #ffffff;
   font-size: 1.2rem;
-  font-weight: 600;
-  border: none;
+  font-weight: bold;
+  border: 2px solid #61f725;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  box-shadow: 0 0 10px #61f725, 0 0 20px #bed7ee; /* Brillo cyberpunk */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .increment-button:hover {
-  background-color: #0056CC; /* Azul más oscuro */
-  transform: translateY(-3px); /* Efecto hover para que se vea más dinámico */
+  box-shadow: 0 0 15px #61f725, 0 0 30px #bed7ee; /* Efecto hover de brillo */
+  transform: scale(1.05); /* Efecto de escala al pasar el mouse */
 }
 
 .increment-button:active {
-  transform: translateY(0);
+  transform: scale(1);
 }
 
+/* Responsivo para dispositivos móviles */
 @media (max-width: 600px) {
   .title {
     font-size: 2rem;
   }
 
   .equation {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .increment-button {
     width: 100%;
-    padding: 14px;
+    padding: 12px;
     font-size: 1rem;
   }
 }
