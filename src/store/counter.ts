@@ -19,6 +19,12 @@ export const useCounterStore = defineStore('counter', {
         increment() {
             this.count += this.incre
             this.total = this.total+this.times2
+        },
+        reset() {
+            this.count = 0
+            this.total = 0
+            this.incre = 5
+            this.valincre = 1
         }
     }
 })

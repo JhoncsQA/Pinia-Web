@@ -5,11 +5,13 @@
       <p class="equation">{{ store.count }} x {{ store.incre }} = {{ store.times2 }}</p>
       <p class="equation">SUMA TOTAL = {{ store.total }}</p>
       <button @click="store.increment()" class="increment-button">Incrementar</button>
+      <button @click="store.reset" class="increment-button">Reset</button>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router'
 import { useCounterStore } from './store/counter';  // Asegúrate de que la ruta sea correcta
 const store = useCounterStore();
 </script>
